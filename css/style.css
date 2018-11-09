@@ -21,6 +21,9 @@ body {
     z-index: 2;
     transition: border 700ms, transform 700ms ease;
 }
+#img1:hover, #img2:hover, #img4:hover, #img5:hover {
+    cursor: pointer;
+}
 #img3:hover {
     transform: scale(1.05, 1.05);
 }
