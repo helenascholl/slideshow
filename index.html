@@ -45,20 +45,8 @@
     </div>
 
     <script>
-        
-        let imageArray = new Array();
-
-        function updateArray() {
-            
-            for (let i = 0; i <= 4; i++) {
-                imageArray[i] = document.images[i + 1].src;
-            }
-            
-        }
 
         function setElementValues() {
-            
-            updateArray();
 
             for (let i = 1; i <= 5; i++) {
                 document.getElementById('img' + i).style.height = document.images[i].height / window.innerWidth * 100 + 'vw';
@@ -87,29 +75,25 @@
 
         function slideLeft() {
 
-            let srcFirstImg = imageArray[0];
+            let srcFirstImg = document.images[1].src;
 
-            for (let i = 0; i < 4; i++) {
-                document.images[i + 1].src = imageArray[i + 1];
+            for (let i = 1; i < 5; i++) {
+                document.images[i].src = document.images[i + 1].src;
             }
 
             document.images[5].src = srcFirstImg;
-            
-            updateArray();
 
         }
 
         function slideRight() {
 
-            let srcLastImg = imageArray[4];
+            let srcLastImg = document.images[5].src;
 
-            for (let i = 4; i > 0; i--) {
-                document.images[i + 1].src = imageArray[i - 1];
+            for (let i = 5; i > 1; i--) {
+                document.images[i].src = document.images[i - 1].src;
             }
 
             document.images[1].src = srcLastImg;
-            
-            updateArray();
 
         }
         
