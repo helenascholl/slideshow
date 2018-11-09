@@ -1,50 +1,66 @@
 body {
     background-color: black;
+    padding: 0;
 }
 .imgWrapper {
-    box-shadow: 0 0 10px 1px;
+    box-shadow: 0 0 1vw 0.1vw;
     position: fixed;
-    border: 3px solid white;
+    border: 0.1vw solid #afafaf;
+    transition: border 300ms;
 }
-#img0, #img4 {
+.imgWrapper:hover {
+    border-color: #ededed;
+}
+#img1, #img5 {
     z-index: 0;
 }
-#img1, #img3 {
+#img2, #img4 {
     z-index: 1;
 }
-#img2 {
+#img3 {
     z-index: 2;
-    transition: transform 500ms ease;
+    transition: border 700ms, transform 700ms ease;
 }
-#img2:hover {
-    transform: scale(1.5, 1.5);
-}
-#img2:hover + #buttonWrapper {
-    bottom: 5vh;
+#img3:hover {
+    transform: scale(1.05, 1.05);
 }
 #buttonWrapper {
     position: fixed;
-    bottom: 20vh;
+    bottom: 2vw;
     left: 40vw;
     width: 20vw;
-    height: 10vh;
+    height: 5vw;
     display: flex;
     justify-content: space-between;
-    transition: all 500ms;
 }
 button {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 10vh;
-    height: 10vh;
-    border: 3px solid #454545;
+    width: 5vw;
+    height: 5vw;
+    border: 0.1vw solid #454545;
     border-radius: 100%;
     background-color: #454545;
-    transition: background-color 200ms;
+    padding: 0;
+    transition: background-color 300ms, padding 300ms;
 }
 button:hover {
     background-color: black;
-    background-color: #4f4f4f;
+    background-color: #878787;
     cursor: pointer;
+}
+button:nth-child(1):hover {    
+    padding-right: 2vw;
+}
+button:nth-child(2):hover {    
+    padding-left: 2vw;
+}
+#logo {
+    filter: invert(100%);
+    margin: auto;
+    margin-top: 2vw;
+}
+#logo img {
+    height: 10vw;
 }

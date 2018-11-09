@@ -3,26 +3,38 @@
   <head>
     <meta charset="utf-8">
     <title>Slideshow</title>
+    <link rel="icon" href="./img/icon.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
         .material-icons {
-            font-size: 2em;
+            font-size: 2vw;
             margin: 0;
         }
     </style>
   </head>
-  <body onload="setPosition()">
+  <body onload="setElementValues()">
 
-    <div class="imgWrapper" id="img0">
-        <img style="height: 30vh;" src="./img/queen_01.jpg" alt="image">
+    <div id="logo">
+        <img src="./img/logo.png" alt="logo">
     </div>
+          
     <div class="imgWrapper" id="img1">
-        <img style="height: 40vh;" src="./img/queen_02.jpg" alt="image">
+        <img style="height: 15vw;" src="./img/queen_01.jpg" alt="image">
     </div>
     <div class="imgWrapper" id="img2">
-        <img style="height: 50vh;" src="./img/queen_03.jpg" alt="image">
+        <img style="height: 20vw;" src="./img/queen_02.jpg" alt="image">
     </div>
+    <div class="imgWrapper" id="img3">
+        <img style="height: 25vw;" src="./img/queen_03.jpg" alt="image">
+    </div>
+    <div class="imgWrapper" id="img4">
+        <img style="height: 20vw;" src="./img/queen_04.jpg" alt="image">
+    </div>
+    <div class="imgWrapper" id="img5">
+        <img style="height: 15vw;" src="./img/queen_05.jpg" alt="image">
+    </div>
+      
     <div id="buttonWrapper">
         <button onclick="slideRight()">
           <p class="material-icons">keyboard_arrow_left</p>
@@ -31,65 +43,73 @@
           <p class="material-icons">keyboard_arrow_right</p>
         </button>
     </div>
-    <div class="imgWrapper" id="img3">
-        <img style="height: 40vh;" src="./img/queen_04.jpg" alt="image">
-    </div>
-    <div class="imgWrapper" id="img4">
-        <img style="height: 30vh;" src="./img/queen_05.jpg" alt="image">
-    </div>
-
-
 
     <script>
+        
+        let imageArray = new Array();
 
-        function setPosition() {
-
+        function updateArray() {
+            
             for (let i = 0; i <= 4; i++) {
-                document.getElementById('img' + i).style.height = document.images[i].height / window.innerHeight * 100 + 'vh';
+                imageArray[i] = document.images[i + 1].src;
+            }
+            
+        }
+
+        function setElementValues() {
+            
+            updateArray();
+
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById('img' + i).style.height = document.images[i].height / window.innerWidth * 100 + 'vw';
                 document.getElementById('img' + i).style.width = document.images[i].width / window.innerWidth * 100 + 'vw';
             }
 
 
-            document.getElementById('img0').style.left = (window.innerWidth / 2 - document.images[0].width / 2 - 2 * window.innerWidth / 10) / window.innerWidth * 100 + 'vw';
-            document.getElementById('img0').style.top = (window.innerHeight / 2 - document.images[0].height / 2) / window.innerHeight * 100 - 10 + 'vh';
+            document.getElementById('img1').style.left = (window.innerWidth / 2 - document.images[1].width / 2 - 2 * window.innerWidth / 10) / window.innerWidth * 100 + 'vw';
+            document.getElementById('img1').style.top = (window.innerHeight / 2 - document.images[1].height / 2) / window.innerWidth * 100 + 2 + 'vw';
 
-            document.getElementById('img1').style.left = (window.innerWidth / 2 - document.images[1].width / 2 -window.innerWidth / 10) / window.innerWidth * 100 + 'vw';
-            document.getElementById('img1').style.top = (window.innerHeight / 2 - document.images[1].height / 2) / window.innerHeight * 100 - 10 + 'vh';
+            document.getElementById('img2').style.left = (window.innerWidth / 2 - document.images[2].width / 2 -window.innerWidth / 10) / window.innerWidth * 100 + 'vw';
+            document.getElementById('img2').style.top = (window.innerHeight / 2 - document.images[2].height / 2) / window.innerWidth * 100 + 2 + 'vw';
 
-            document.getElementById('img2').style.left = (window.innerWidth / 2 - document.images[2].width / 2) / window.innerWidth * 100 + 'vw';
-            document.getElementById('img2').style.top = (window.innerHeight / 2 - document.images[2].height / 2) / window.innerHeight * 100 - 10 + 'vh';
+            document.getElementById('img3').style.left = (window.innerWidth / 2 - document.images[3].width / 2) / window.innerWidth * 100 + 'vw';
+            document.getElementById('img3').style.top = (window.innerHeight / 2 - document.images[3].height / 2) / window.innerWidth * 100 + 2 + 'vw';
 
-            document.getElementById('img3').style.left = (window.innerWidth / 2 - document.images[3].width / 2 + window.innerWidth / 10) / window.innerWidth * 100 + 'vw';
-            document.getElementById('img3').style.top = document.getElementById('img1').style.top
+            document.getElementById('img4').style.left = (window.innerWidth / 2 - document.images[4].width / 2 + window.innerWidth / 10) / window.innerWidth * 100 + 'vw';
+            document.getElementById('img4').style.top = document.getElementById('img2').style.top;
 
-            document.getElementById('img4').style.left = (window.innerWidth / 2 - document.images[4].width / 2 + 2 * window.innerWidth / 10) / window.innerWidth * 100 + 'vw';
-            document.getElementById('img4').style.top = document.getElementById('img0').style.top
+            document.getElementById('img5').style.left = (window.innerWidth / 2 - document.images[5].width / 2 + 2 * window.innerWidth / 10) / window.innerWidth * 100 + 'vw';
+            document.getElementById('img5').style.top = document.getElementById('img1').style.top;
+            
+            document.getElementById('logo').style.width = document.images[0].width / window.innerWidth * 100 + 'vw';
 
         }
 
-
-
         function slideLeft() {
 
-            let srcFirstImg = document.images[0].src;
+            let srcFirstImg = imageArray[0];
 
             for (let i = 0; i < 4; i++) {
-                document.images[i].src = document.images[i + 1].src;
+                document.images[i + 1].src = imageArray[i + 1];
             }
 
-            document.images[4].src = srcFirstImg;
+            document.images[5].src = srcFirstImg;
+            
+            updateArray();
 
         }
 
         function slideRight() {
 
-            let srcLastImg = document.images[4].src;
+            let srcLastImg = imageArray[4];
 
             for (let i = 4; i > 0; i--) {
-                document.images[i].src = document.images[i - 1].src;
+                document.images[i + 1].src = imageArray[i - 1];
             }
 
-            document.images[0].src = srcLastImg;
+            document.images[1].src = srcLastImg;
+            
+            updateArray();
 
         }
 
