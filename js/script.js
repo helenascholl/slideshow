@@ -3,6 +3,7 @@ function setElementValues() {
     for (let i = 1; i <= 5; i++) {
         document.getElementById('img' + i).style.height = document.images[i].height / window.innerWidth * 100 + 'vw';
         document.getElementById('img' + i).style.width = document.images[i].width / window.innerWidth * 100 + 'vw';
+        document.getElementById('img' + i).style.display = 'block';
     }
 
 
