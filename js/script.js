@@ -1,11 +1,10 @@
 function setElementValues() {
 
     for (let i = 1; i <= 5; i++) {
+        document.getElementById('img' + i).style.display = 'block';
         document.getElementById('img' + i).style.height = document.images[i].height / window.innerWidth * 100 + 'vw';
         document.getElementById('img' + i).style.width = document.images[i].width / window.innerWidth * 100 + 'vw';
-        document.getElementById('img' + i).style.display = 'block';
     }
-
 
     document.getElementById('img1').style.left = (window.innerWidth / 2 - document.images[1].width / 2 - 2 * window.innerWidth / 10) / window.innerWidth * 100 + 'vw';
     document.getElementById('img1').style.top = (window.innerHeight / 2 - document.images[1].height / 2) / window.innerWidth * 100 + 2 + 'vw';
@@ -22,8 +21,8 @@ function setElementValues() {
     document.getElementById('img5').style.left = (window.innerWidth / 2 - document.images[5].width / 2 + 2 * window.innerWidth / 10) / window.innerWidth * 100 + 'vw';
     document.getElementById('img5').style.top = document.getElementById('img1').style.top;
 
+    document.getElementById('logo').style.display = 'block'
     document.getElementById('logo').style.width = document.images[0].width / window.innerWidth * 100 + 'vw';
-
 }
 
 function slideLeft() {
